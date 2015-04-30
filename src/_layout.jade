@@ -1,0 +1,29 @@
+doctype
+html
+  head
+    title Poker Planning
+    link(rel="stylesheet", href="styles/main.css")
+    link(rel="stylesheet", href="scripts/libs/angular-ui-select/dist/select.css")
+    link(rel="stylesheet", href="http://cdnjs.cloudflare.com/ajax/libs/select2/3.4.5/select2.css")
+    link(rel="stylesheet", href="http://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.8.5/css/selectize.default.css")
+    
+  body(ng-app="poker")
+    block content
+
+    block scripts
+      script(src="scripts/livereload-support.js")
+      script(src="scripts/libs/angular/angular.min.js")
+      script(src="scripts/libs/angular-ui-router/release/angular-ui-router.js")
+      script(src="scripts/libs/angular-resource/angular-resource.min.js")
+      script(src="scripts/libs/lodash/dist/lodash.js")
+      script(src="scripts/libs/angular-ui-select/dist/select.js")
+      script(src="scripts/libs/angular-bootstrap/ui-bootstrap-tpls.js")      
+      script(src="scripts/libs/firebase/firebase.js")      
+      script(src="https://cdn.firebase.com/libs/angularfire/1.0.0/angularfire.min.js")
+      
+      script(src="scripts/app.js")
+      script(src="scripts/services/api.js")
+      script(src="scripts/services/firebase-model.js")
+    
+      script(src="scripts/controllers/boardCtrl.js")           
+      script(src="scripts/controllers/homeCtrl.js")

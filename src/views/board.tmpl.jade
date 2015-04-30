@@ -1,0 +1,20 @@
+.player-container
+  .other-players-header
+    
+    span(ng-repeat="pl in players")
+      img.avatar(src="{{pl.value.avatar}}")
+      
+  .issue-container
+    .issue.col-md-6
+      .row {{issue.current.key}}
+      .row {{issue.current.summary}}
+      .row {{issue.current.description}}
+      .row {{issue.current.status}}
+    .issue-toolbar.col-md-1
+      .row
+        span.glyphicon.glyphicon-comment(aria-hidden="true")
+      .row
+        span.glyphicon.glyphicon-comment(aria-hidden="true")
+      .row
+        span.glyphicon.glyphicon-comment(aria-hidden="true")
+  .deck-container
