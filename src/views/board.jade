@@ -1,0 +1,24 @@
+.player-container
+  .other-players-header
+    
+    span(ng-repeat="pl in players")
+      .other-player
+        .oterh-player-avatar
+          img.avatar(src="{{pl.value.avatar}}")
+        .other-player-card
+          img.other-player-card-img(src="images/kaart_coffee.jpg")
+  .issue-container
+    .issue.col-md-8
+      .jumbotron
+        h2 {{current.summary}}
+        div(ng-bind-html="current.description")
+    .issue-toolbar
+      .tool.glyphicon.glyphicon-comment(aria-hidden="true")
+      .tool.glyphicon.glyphicon-user(aria-hidden="true")
+      .tool
+        img(src="{{current.status.iconUrl}}" alt="{{current.status.name}}")
+      .tool
+        img(src="{{current.priorityUrl}}")
+      
+  .deck-container
+  

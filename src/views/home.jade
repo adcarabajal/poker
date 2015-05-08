@@ -1,0 +1,29 @@
+.home-container
+  .jumbotron.create-board-container(ng-show="create")
+    h1 Create Board
+    p ..
+    
+    form
+      .form-group
+        label(for="jiraurl") Jira URL
+        input.form-control(type="text", id="jiraurl" placeholder="https://www.mulesoft.org/jira/rest/greenhopper/1.0/xboard/plan/backlog/data.json?rapidViewId=53", aria-describedby="jiraurl", ng-model="jiraurl")
+      .form-group
+        label(for="user") User
+        input.form-control(type="text", id="user", placeholder="User", aria-describedby="usr", ng-model="user")  
+      .form-group
+        label(for="password") Password
+        input.form-control(type="password", id="password", placeholder="Password", aria-describedby="usr", ng-model="password")  
+      
+      button.btn.btn-default(type="button" ng-click="loadBacklog()") Next
+     
+  .select-backlog-container(ng-show="select")
+    .backlog.col-md-6
+      accordion
+        accordion-group(ng-repeat="sprint in backlog.sprints" heading="{{sprint.name}}")
+          ul.list-group(ng-repeat="issue in sprint.issues")
+            li.list-group-item {{issue.summary}}    
+    
+        accordion-group(heading="Backlog")
+              ul.list-group(ng-repeat="issue in backlog.backlog")
+                li.list-group-item {{issue.summary}}    
+    .selected.col-md-6

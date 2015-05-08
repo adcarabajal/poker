@@ -10,6 +10,7 @@
         'ui.select',
         'firebase',
         'ui.router',
+        'ngSanitize',
 
         // project
         'api'
@@ -33,9 +34,15 @@
     }]);
 
     app.config(["$stateProvider" , "$urlRouterProvider", function ($stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.otherwise("/home");
+        $urlRouterProvider.otherwise("/");
 
         $stateProvider
+        .state("login", {
+
+          url: "/",
+          controller: "loginCtrl",
+          templateUrl: "views/login.html"
+        })
         .state("home", {
 
           url: "/home",

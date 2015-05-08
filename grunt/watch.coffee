@@ -15,3 +15,8 @@ module.exports =
     tasks: ['site']
     options:
       reload: true
+  express:
+    files:  [ 'app/*.js' ]
+    tasks:  [ 'express:dev' ]
+    options:
+      spawn: false

@@ -26,6 +26,19 @@
       var ref = new Firebase("https://popping-torch-2451.firebaseio.com/boards/" + $stateParams.id + "/backlog");
 
       return $firebaseArray(ref);
+    })
+    .factory('fbplay', function safeApplyFactory($firebaseObject, $stateParams) {
+      var ref = new Firebase("https://popping-torch-2451.firebaseio.com/boards/" + $stateParams.id + "/play");
+
+      return $firebaseObject(ref);
+    })
+    .factory('jirabacklog', function safeApplyFactory($resource){
+
+      return {
+          backlog : $resource('api/jira/backlog',{} , {
+                      update: { method: 'PUT'}
+                      })
+      }
     });
 
 })();

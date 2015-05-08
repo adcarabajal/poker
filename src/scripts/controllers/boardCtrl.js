@@ -2,13 +2,23 @@
   'use strict';
 
   angular.module('poker')
-    .controller('boardCtrl', function ($scope, currentAuth, fbboard, fbplayer, fbplayers, fbbacklog) {
+    .controller('boardCtrl', function ($scope, currentAuth, fbboard, fbplayer, fbplayers, fbbacklog, fbplay) {
       (function bootstrap() {
 
 
           $scope.player = fbplayer(currentAuth);
           $scope.players = fbplayers;
-          $scope.backlog = $scope.fbbacklog;
+          $scope.backlog = fbbacklog;
+          $scope.play = fbplay;
+
+
+          $scope.backlog.$loaded(function(){
+
+            $scope.play.$loaded(function(){
+              $scope.current = $scope.backlog[1];
+              console.log($scope.current);
+            });
+          });
 
           $scope.player.$loaded(function() {
 
@@ -28,8 +38,10 @@
           });
 
           $scope.players.$loaded(function(){
-            console.log($scope.players);
-          });          
+            //console.log("players", $scope.players);
+          });
+
+
 
       })();
     });
